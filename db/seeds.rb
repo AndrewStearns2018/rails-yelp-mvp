@@ -9,11 +9,14 @@
 require 'faker'
 
 category = ["chinese", "italian", "japanese", "french", "belgian"].sample
+# rating = (0..5).to_a.sample
 
 10.times do
   restaurant = Restaurant.new(
     name: Faker::TheThickOfIt.department,
     address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
     category: category)
   restaurant.save!
 end
+
