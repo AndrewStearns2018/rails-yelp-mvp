@@ -64,3 +64,4 @@ gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'faker'
