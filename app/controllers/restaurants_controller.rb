@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     # The params here hooks everything up to the user-submitted data.
     if @restaurant.save
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant)
       # Here we test to see if it can save.
     else
       render :new
@@ -26,6 +26,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :categroy)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 end
