@@ -1,0 +1,10 @@
+<br>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+<!-- To get to the review inside the restaurant, you need to have these
+  [] -->
+ <div class="container">
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <%= f.submit "Add a review", class: "btn btn-info" %>
+  </div>
+<% end %>
