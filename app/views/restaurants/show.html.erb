@@ -3,3 +3,9 @@
 <h3><%= @restaurant.phone_number %></h3>
 <h3><%= @restaurant.address %></h3>
 <h3><%= @restaurant.category.capitalize %></h3>
+
+<% @restaurant.reviews.each do |review| %>
+  <%= review.content %>
+<% end %>
+
+<%= link_to "Back to list", restaurants_path %>
