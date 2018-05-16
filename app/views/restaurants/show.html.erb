@@ -1,11 +1,21 @@
-<h1><%= @restaurant.name %></h1>
-<h3><%= @restaurant.address %></h3>
-<h3><%= @restaurant.phone_number %></h3>
-<h3><%= @restaurant.address %></h3>
-<h3><%= @restaurant.category.capitalize %></h3>
+<div class="row">
+  <h1 class="col-md-6 col-md-offset-3"><%= @restaurant.name %></h1>
+  <h3 class="col-md-6 col-md-offset-3"><%= @restaurant.address %></h3>
+  <h3 class="col-md-6 col-md-offset-3"><%= @restaurant.phone_number %></h3>
+  <h3 class="col-md-6 col-md-offset-3"><%= @restaurant.address %></h3>
+  <h3 class="col-md-6 col-md-offset-3"><%= @restaurant.category.capitalize %></h3>
+  <%= link_to "Back to list", restaurants_path, class: "btn btn-info", style: "position: absolute; top: 25px; right: 25px;" %>
+</div>
+<div>
+  <ul class="row list-unstyled">
 
-<% @restaurant.reviews.each do |review| %>
-  <%= review.content %>
-<% end %>
+      <% @restaurant.reviews.each do |review| %>
+        <li class="col-md-6 col-md-offset-3"> <strong><%= review.rating %></strong><br><%= review.content %></li>
+      <% end %>
 
-<%= link_to "Back to list", restaurants_path %>
+  </ul>
+</div>
+
+
+<!-- We don't need some special route path for the showing of reviews because
+  reviews is a method de par les modèles of restaurants-->

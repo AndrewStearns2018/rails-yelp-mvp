@@ -11,15 +11,12 @@ Restaurant.destroy_all
 
 require 'faker'
 
-category = ["chinese", "italian", "japanese", "french", "belgian"].sample
-rating = (0..5).to_a.sample
-
 10.times do
   restaurant = Restaurant.new(
     name: Faker::TheThickOfIt.department,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number,
-    category: category)
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample)
   restaurant.save!
 end
 
@@ -28,7 +25,7 @@ restaurant_id_array = Restaurant.all.map { |restaurant| restaurant.id }
 100.times do
   review = Review.new(
     restaurant_id: restaurant_id_array.sample,
-    rating: rating,
+    rating: (0..5).to_a.sample,
     content: Faker::Lorem.paragraph)
   review.save!
 end
